@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>Web3 DApp</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: #1a1a2e; color: white; }
+    h1 { color: #e94560; }
+    button { background: #e94560; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; }
+    #status { margin-top: 20px; font-size: 18px; }
+  </style>
+</head>
+<body>
+  <h1>🌐 Web3 DApp</h1>
+  <p>Blockchain ilovasi</p>
+  <button onclick="connect()">Connect Wallet</button>
+  <div id="status"></div>
+  <script>
+    async function connect() {
+      if (typeof window.ethereum !== 'undefined') {
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        document.getElementById('status').innerText = 'Connected: ' + accounts[0];
+      } else {
+        document.getElementById('status').innerText = 'MetaMask topilmadi!';
+      }
+    }
+  </script>
+</body>
+</html>
